@@ -6,7 +6,7 @@ USE bamazon_db;
 
 CREATE TABLE products(
   -- Creates a numeric column called "id" which will automatically increment its default value as we create new rows. --
-   Id INTEGER(11) AUTO_INCREMENT NOT NULL,
+   ID INTEGER(11) AUTO_INCREMENT NOT NULL,
   productName VARCHAR(50),
   deptName VARCHAR(50),
   price DECIMAL(10,2) NULL,
