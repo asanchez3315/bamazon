@@ -23,7 +23,7 @@ connection.connect(function (err) {
 
 function display() {
     //show all ids, names, and products from database.
-    connection.query('SELECT * FROM Products', function (err, response) {
+    connection.query('SELECT * FROM products', function (err, response) {
         if (err) throw err
         //New instance of our constructor
         var displayTable = new Table({
@@ -82,7 +82,7 @@ function restockProduct() {
             message: "What is the ID of the item you wish to restock?"
         }, 
         {
-            name: 'Quantity',
+            name: 'quantity',
             type: 'input',
             message: "How many would you like to add?"
         },
@@ -97,14 +97,12 @@ function restockProduct() {
 
 
 function restockDatabase(ID, quantity) {
-    //update the database
-    connection.query('SELECT * FROM Products WHERE Item ID = ' + ID, function (err, response) {
-        if (err) console.log(err)
-        connection.query('UPDATE Products SET Quantity = Quantity + ' + quantity + ' WHERE Item ID = ' + ID);
+    //     
+        connection.query('UPDATE products SET quantity = ' + quantity + ' WHERE ID = ' + ID);
         //re-run display to show updated results
         display();
-    });
-}; 
+    };
+  //end  restockDatabase
 
 function addProduct() {
     inquirer.prompt([
@@ -120,12 +118,12 @@ function addProduct() {
             message: "add product to which dept"
         },
         {
-            name: 'Price',
+            name: 'price',
             type: 'input',
             message: "How much would you like this to cost?"
         },
         {
-            name: 'Quantity',
+            name: 'quantity',
             type: 'input',
             message: "How many would you like to add?"
         },
@@ -142,9 +140,10 @@ function addProduct() {
 
 function buildNewItem(name, dept, price, quantity) {
     //query database, insert new item
-    connection.query('INSERT INTO Products (Product Name, Product Dept ,Price, Quantity) VALUES("' + name + '","' + dept + '",' + price + ',' + quantity + ')');
+    connection.query('INSERT INTO products (productName, deptName ,price, quantity) VALUES("' + name + '","' + dept + '",' + price + ',' + quantity + ')');
     //display updated results
     display();
+
 
 };//end buildNewItem
 
@@ -154,13 +153,13 @@ function removeProduct() {
         type: "input",
         message: "What is the item number of the item you wish to remove?"
     }]).then(function (answer) {
-        var id = answer.Id;
+        var id = answer.ID;
         removeFromDatabase(id);
     });
 };//
 
 function removeFromDatabase(ID) {
-    connection.query('DELETE FROM Products WHERE Item ID = ' + ID);
+    connection.query('DELETE FROM products WHERE ID = ' + ID);
     display();
 };//end removeFromDatabase
 
