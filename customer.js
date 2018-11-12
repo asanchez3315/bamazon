@@ -81,11 +81,14 @@ function purchasedItem(ID, quantityNeeded) {
       console.log("Your order is being processed.");
       console.log("Your total cost for " + quantityNeeded + " " + response[0].productName + " is " + totalCost + ". Thank you for your purchase!");
       
-      connection.query('UPDATE products SET quantity = quantity - ' + quantityNeeded + ' WHERE ID = ' + ID);
+      connection.query('UPDATE products SET quantity = quantity - ' + quantityNeeded + ' WHERE ID = ' + ID, function(error, result){
+       
+      display()
+
+      });
     } else {
       console.log("Our apologies. We don't have enough " + response[0].productName + " to complete your order.");
     };
-    inquireForPurchase()
   });
 
 }; 

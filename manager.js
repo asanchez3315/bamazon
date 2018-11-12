@@ -108,7 +108,7 @@ function addProduct() {
     inquirer.prompt([
 
         {
-            name: "Name",
+            name: "name",
             type: "input",
             message: "What is the name of the item you wish to stock?"
         },
@@ -130,8 +130,8 @@ function addProduct() {
 
     ]).then(function (answers) {
         //gather user input, store as variables, pass as parameters
-        var name = answers.productName;
-        var dept = answers.deptName;
+        var name = answers.name;
+        var dept = answers.dept;
         var price = answers.price;
         var quantity = answers.quantity;
         buildNewItem(name, dept, price, quantity);
@@ -140,9 +140,11 @@ function addProduct() {
 
 function buildNewItem(name, dept, price, quantity) {
     //query database, insert new item
-    connection.query('INSERT INTO products (productName, deptName ,price, quantity) VALUES("' + name + '","' + dept + '",' + price + ',' + quantity + ')');
+    connection.query('INSERT INTO products (productName, deptName ,price, quantity) VALUES("' + name + '","' + dept + '",' + price + ',' + quantity + ')', function(error, result){
+        display()
+    });
     //display updated results
-    display();
+    
 
 
 };//end buildNewItem
