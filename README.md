@@ -15,7 +15,7 @@ https://drive.google.com/file/d/1AVhbC4vCoipfo92qdaLpcuNZL1dsL5cg/view
 
 The Manager app like the customer app, loads the table when you run the application and it asks 3 tasks, restock, add a new product, or delete a product.
 
- I have to fix the add a new product feature, beacause it does add the item but it labels it as undefined.
+
 
 Click the link below to see a short video.
 
