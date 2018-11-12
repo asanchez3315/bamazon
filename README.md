@@ -11,7 +11,7 @@ The customer app works as soon as you run the application ,it loads the table an
 
 Click the link below to see a short video.
 
-https://drive.google.com/file/d/1RyF3hbM9eOK4CGOvPEhDiIJCoqadu9Dp/view
+https://drive.google.com/file/d/1AVhbC4vCoipfo92qdaLpcuNZL1dsL5cg/view
 
 The Manager app like the customer app, loads the table when you run the application and it asks 3 tasks, restock, add a new product, or delete a product.
 
@@ -19,8 +19,7 @@ The Manager app like the customer app, loads the table when you run the applicat
 
 Click the link below to see a short video.
 
-https://drive.google.com/file/d/1l1lR2zfqVpoA9y6Wy0aQuzpAbxE7o8hg/view
-
+https://drive.google.com/file/d/1iu0zzr8Ww2njrB0wQob6Vcp4MjDjcvxY/view
 # Technologies used
 JS
 Node JS
